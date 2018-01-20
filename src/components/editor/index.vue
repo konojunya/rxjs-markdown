@@ -16,12 +16,6 @@ export default {
     const textareaStream = Rx.Observable.fromEvent(textarea, "input")
     .map((el) => {
       return el.target.value
-    })
-    .map((value) => {
-      value = value.replace(/\r\n/g, '\n');
-      value = value.replace(/\r/g, '\n');
-      var lines = value.split('\n');
-      return lines.join("<br/>")
     });
     textareaStream.subscribe((value) => vueStore.commit("update", value));
   }

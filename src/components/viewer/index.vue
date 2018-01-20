@@ -4,12 +4,13 @@
 
 <script>
 import vueStore from '../../vuex'
+import marked from "marked";
 
 export default {
   name: "viewer",
   computed: {
     text() {
-      return vueStore.state.text;
+      return marked(vueStore.state.text);
     }
   }
 }
